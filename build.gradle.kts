@@ -5,7 +5,7 @@ plugins {
 }
 
 group = "com.scriptplugin"
-version = "1.0.0"
+version = "1.0.1"
 
 repositories {
     mavenCentral()
@@ -29,7 +29,7 @@ tasks {
     }
 
     patchPluginXml {
-        sinceBuild.set("241")
+        sinceBuild.set("243")  // 2024.3
         untilBuild.set("253.*")
     }
 
