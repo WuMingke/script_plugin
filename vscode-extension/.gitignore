@@ -1,0 +1,11 @@
+out
+node_modules
+.vscode-test
+*.vsix
+
+# 敏感信息
+.env
+.env.local
+*.token
+*.secret
+

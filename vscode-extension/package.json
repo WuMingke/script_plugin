@@ -1,0 +1,111 @@
+{
+  "name": "wql-script-runner",
+  "displayName": "Script Runner (WQL)",
+  "description": "快速运行项目脚本的 VSCode 插件",
+  "version": "1.0.1",
+  "publisher": "wql-script-runner",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/WuMingke/script_plugin.git"
+  },
+  "engines": {
+    "vscode": "^1.80.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "scriptRunner.runScript",
+        "title": "运行脚本..."
+      },
+      {
+        "command": "scriptRunner.configureScripts",
+        "title": "配置脚本"
+      }
+    ],
+    "menus": {
+      "explorer/context": [
+        {
+          "command": "scriptRunner.runScript",
+          "when": "explorerResourceIsFile",
+          "group": "navigation"
+        }
+      ],
+      "editor/context": [
+        {
+          "command": "scriptRunner.runScript",
+          "group": "navigation"
+        }
+      ],
+      "commandPalette": [
+        {
+          "command": "scriptRunner.runScript",
+          "when": "true"
+        },
+        {
+          "command": "scriptRunner.configureScripts",
+          "when": "true"
+        }
+      ]
+    },
+    "configuration": {
+      "title": "Script Runner",
+      "properties": {
+        "scriptRunner.scripts": {
+          "type": "array",
+          "default": [],
+          "description": "配置的脚本列表",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string",
+                "description": "脚本名称"
+              },
+              "path": {
+                "type": "string",
+                "description": "脚本文件路径（可选，如果为空则使用 commands）"
+              },
+              "workingDirectory": {
+                "type": "string",
+                "description": "工作目录（可选）"
+              },
+              "arguments": {
+                "type": "string",
+                "description": "脚本参数或命令（支持多行）"
+              },
+              "description": {
+                "type": "string",
+                "description": "脚本描述"
+              }
+            },
+            "required": [
+              "name"
+            ]
+          }
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "package": "npx @vscode/vsce package",
+    "publish": "npx @vscode/vsce publish"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "@types/vscode": "^1.80.0",
+    "typescript": "^5.0.0"
+  },
+  "dependencies": {}
+}
+
