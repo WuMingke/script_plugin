@@ -58,8 +58,8 @@
     </ul>
     ]]></change-notes>
 
-    <!-- 兼容的 IntelliJ IDEA 版本 -->
-    <idea-version since-build="243" until-build="253.*"/>
+    <!-- 兼容的 IntelliJ IDEA 版本（含 Android Studio AI-262） -->
+    <idea-version since-build="243" until-build="262.*"/>
 
     <!-- 依赖 -->
     <depends>com.intellij.modules.platform</depends>

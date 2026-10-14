@@ -30,7 +30,7 @@ tasks {
 
     patchPluginXml {
         sinceBuild.set("243")  // 2024.3
-        untilBuild.set("253.*")
+        untilBuild.set("262.*") // Android Studio / IDEA 2026.2 (AI-262)
     }
 
     signPlugin {
